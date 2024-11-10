@@ -47,7 +47,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
   go_router: ^14.4.1
-
+  google_nav_bar: ^5.0.7
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -68,6 +68,9 @@ flutter:
     - assets/payment.png
     - assets/rating.png
     - assets/report.png
+    - assets/home.png
+    - assets/inbox.png
+    - assets/profile.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
