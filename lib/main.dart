@@ -5,6 +5,7 @@ void main() {
   runApp(
     MaterialApp.router(
       routerConfig: router,
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
