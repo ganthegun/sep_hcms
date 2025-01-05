@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 
 class BookingForm extends StatefulWidget {
-  BookingForm({super.key});
+  const BookingForm({super.key});
 
   @override
   State<BookingForm> createState() => _BookingFormState();
@@ -105,7 +104,7 @@ class _BookingFormState extends State<BookingForm> {
                           min: 0.0,
                           max: 100.0,
                           divisions: 10000,
-                          label: _size.toStringAsPrecision(4) + "sqft",
+                          label: "${_size.toStringAsPrecision(4)}sqft",
                           onChanged: (double value) {
                             setState(() {
                               _size = value;

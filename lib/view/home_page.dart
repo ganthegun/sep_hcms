@@ -47,7 +47,7 @@ class HomePage extends StatelessWidget {
               ImageButton(
                 title: 'Activity\nUpdate',
                 imagePath: 'assets/activity_update.png',
-                callback: () {},
+                callback: () => context.go('/activity-update'),
               ),
               ImageButton(
                 title: 'Payment',

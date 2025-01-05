@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "991979629892",
+    "project_id": "sep-hcms-89a9b",
+    "storage_bucket": "sep-hcms-89a9b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991979629892:android:70e71338d998921960bb11",
+        "android_client_info": {
+          "package_name": "com.example.sep_"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB6W1chMvU_4xq0RE1YKH_QOR4E64-ECM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991979629892:android:b75955a38815f04760bb11",
+        "android_client_info": {
+          "package_name": "com.example.sep_hcms"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB6W1chMvU_4xq0RE1YKH_QOR4E64-ECM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
