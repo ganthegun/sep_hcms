@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 
 class BookingForm extends StatefulWidget {
-  BookingForm({super.key});
+  const BookingForm({super.key});
 
   @override
   State<BookingForm> createState() => _BookingFormState();
@@ -11,7 +12,7 @@ class BookingForm extends StatefulWidget {
 class _BookingFormState extends State<BookingForm> {
   final _formKey = GlobalKey<FormState>();
 
-  double _size = 50.0;
+  List<DateTime> _date = [];
 
   @override
   Widget build(BuildContext context) {
@@ -81,8 +82,10 @@ class _BookingFormState extends State<BookingForm> {
                       ),
                       TableCell(
                         child: TextField(
+                          textAlign: TextAlign.center,
                           decoration: InputDecoration(
                             hintText: "Enter your address",
+                            alignLabelWithHint: true,
                           ),
                         ),
                       )
@@ -97,24 +100,77 @@ class _BookingFormState extends State<BookingForm> {
                           style: TextStyle(
                             fontSize: 15,
                           ),
+                          textAlign: TextAlign.right,
                         ),
                       ),
                       TableCell(
-                        child: Slider(
-                          value: _size,
-                          min: 0.0,
-                          max: 100.0,
-                          divisions: 10000,
-                          label: _size.toStringAsPrecision(4) + "sqft",
-                          onChanged: (double value) {
-                            setState(() {
-                              _size = value;
-                            });
-                          },
+                        child: Row(
+                          children: [
+                            Expanded( // Wrap TextField with Expanded
+                              child: TextField(
+                                textAlign: TextAlign.center,
+                                decoration: InputDecoration(
+                                  hintText: "Enter your house size",
+                                  alignLabelWithHint: true,
+                                ),
+                              ),
+                            ),
+                            Text(
+                              "sqft",
+                              style: TextStyle(
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
                         ),
-                      )
+                      ),
                     ],
                   ),
+                  TableRow(
+                    children: [
+                      TableCell(
+                        verticalAlignment: TableCellVerticalAlignment.middle,
+                        child: Text(
+                          "Date:",
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                          textAlign: TextAlign.right,
+                        ),
+                      ),
+                      TableCell(
+                        child: Align(
+                          alignment: Alignment.center,  // or any other alignment
+                          child: SizedBox(
+                            width: 150,
+                            child: OutlinedButton(
+                              onPressed: () async {
+                                final values = await showCalendarDatePicker2Dialog(
+                                  context: context,
+                                  config: config,
+                                  dialogSize: const Size(325, 370),
+                                  borderRadius: BorderRadius.circular(15),
+                                  value: _dialogCalendarPickerValue,
+                                  dialogBackgroundColor: Colors.white,
+                                );
+                                if (values != null) {
+                                  // ignore: avoid_print
+                                  print(_getValueText(
+                                    config.calendarType,
+                                    values,
+                                  ));
+                                  setState(() {
+                                    _dialogCalendarPickerValue = values;
+                                  });
+                                }
+                              },
+                              child: Text("Pick a date"),
+                            ),
+                          ),
+                        ),
+                      )
+                    ]
+                  )
                 ],
               ),
               // DatePickerDialog(firstDate: firstDate, lastDate: lastDate)
