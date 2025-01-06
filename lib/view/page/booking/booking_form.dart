@@ -144,26 +144,7 @@ class _BookingFormState extends State<BookingForm> {
                           child: SizedBox(
                             width: 150,
                             child: OutlinedButton(
-                              onPressed: () async {
-                                final values = await showCalendarDatePicker2Dialog(
-                                  context: context,
-                                  config: config,
-                                  dialogSize: const Size(325, 370),
-                                  borderRadius: BorderRadius.circular(15),
-                                  value: _dialogCalendarPickerValue,
-                                  dialogBackgroundColor: Colors.white,
-                                );
-                                if (values != null) {
-                                  // ignore: avoid_print
-                                  print(_getValueText(
-                                    config.calendarType,
-                                    values,
-                                  ));
-                                  setState(() {
-                                    _dialogCalendarPickerValue = values;
-                                  });
-                                }
-                              },
+                              onPressed: () {},
                               child: Text("Pick a date"),
                             ),
                           ),
