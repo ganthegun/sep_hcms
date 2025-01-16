@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sep_hcms/view/page/booking/booking_form.dart';
+import 'package:go_router/go_router.dart';
 
 class FloatingButton extends StatelessWidget {
   final String path;
@@ -12,12 +12,10 @@ class FloatingButton extends StatelessWidget {
       case '/booking':
         return FloatingActionButton(
           onPressed: () {
-            showModalBottomSheet(
-              context: context,
-              isScrollControlled: true,
-              builder: (BuildContext context) => BookingForm(),
-            );
+            context.go('/booking/create');
           },
+          backgroundColor: const Color.fromARGB(255, 232, 244, 212),
+          foregroundColor: Colors.black,
           child: const Icon(Icons.add),
         );
     // Add more cases here if you want to use floating button in other pages
