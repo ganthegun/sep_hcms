@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sep_hcms/provider/booking_provider.dart';
 import 'package:sep_hcms/provider/offer_provider.dart';
+import 'package:sep_hcms/provider/schedule_provider.dart';
 import 'package:sep_hcms/route.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => BookingProvider()),
         ChangeNotifierProvider(create: (context) => OfferProvider()),
+        ChangeNotifierProvider(create: (context) => ScheduleProvider()),
       ],
       child: MaterialApp.router(
         routerConfig: router,

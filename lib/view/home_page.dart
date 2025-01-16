@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
               ImageButton(
                 title: 'Schedule',
                 imagePath: 'assets/schedule.png',
-                callback: () {},
+                callback: () => context.go('/schedule'),
               ),
               ImageButton(
                 title: 'Activity\nUpdate',
