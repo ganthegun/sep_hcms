@@ -30,7 +30,7 @@ class _NavBarState extends State<NavBar> {
             child: GNav(
               rippleColor: Colors.grey[300]!,
               hoverColor: Colors.grey[100]!,
-              gap: 10,
+              gap: 0,
               activeColor: const Color.fromARGB(255, 168, 196, 108),
               iconSize: 30,
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
@@ -41,13 +41,13 @@ class _NavBarState extends State<NavBar> {
               onTabChange: (index) {
                 switch (index) {
                   case 0:
-                    context.go('/');
+                    context.go('/homePage');
                     break;
                   case 1:
                   // include route to inbox
                     break;
                   case 2:
-                  // include route to user profile
+                    context.go('/userProfilePage');
                     break;
                 }
               },

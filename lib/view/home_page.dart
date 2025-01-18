@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sep_hcms/view/widget/image_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,37 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-            )
+            ),
+            Align(
+              alignment: Alignment.topRight,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                  ),
+                  foregroundColor: Colors.black,
+                ),
+                onPressed: () async {
+                  await _auth.signOut();
+                  context.go('/');
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.logout,
+                      color: Colors.black,
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      'Logout',
+                      style: TextStyle(fontSize: 10),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
         SingleChildScrollView(
@@ -62,7 +95,7 @@ class HomePage extends StatelessWidget {
               ImageButton(
                 title: 'Report',
                 imagePath: 'assets/report.png',
-                callback: () {},
+                callback: () => context.go('/reportPage'),
               ),
             ],
           ),
